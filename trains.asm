@@ -1,6 +1,25 @@
 ;===============================================================================
+;
+;  _____          _           
+; |_   _| __ __ _(_)_ __  ___ 
+;   | || '__/ _` | | '_ \/ __|
+;   | || | | (_| | | | | \__ \
+;   |_||_|  \__,_|_|_| |_|___/
+;                             
+; A Demo Program for the 65C02
 ;-------------------------------------------------------------------------------
+; Copyright (C),2020 Andrew John Jacobs.
+; All rights reserved.
+;
+; This work is made available under the terms of the Creative Commons
+; Attribution-NonCommercial-ShareAlike 4.0 International license. Open the
+; following URL to see the details.
+;
+; http://creativecommons.org/licenses/by-nc-sa/4.0/
+;
 ;===============================================================================
+; Notes:
+;
 ;-------------------------------------------------------------------------------
 
 		.65C02
@@ -68,15 +87,11 @@ PTR		.space	2			; String pointer
 		 lda	#TTY_COLS-1
 		 sta	XBASE
 		 repeat
-		
-		
 		  jsr	DrawC51
 		  break cs
 		
-		
 		  dec 	XBASE
 		 forever
-		 
 		forever
 		
 		ldx	#TTY_COLS-1
@@ -84,8 +99,7 @@ PTR		.space	2			; String pointer
 		jsr	MoveTo
 		jsr	Show
 		
-		brk
-		
+		brk				; Return to monitor
 		
 ;-------------------------------------------------------------------------------
 
@@ -265,10 +279,6 @@ DrawC51:
 		 sbc	#C51PATTERNS
 		forever
 
-		 
-		
-		
-		
 		lda	ACCIDENT
 		if ne
 		endif

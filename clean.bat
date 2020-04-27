@@ -1,0 +1,1 @@
+nmake "RM=erase" clean
